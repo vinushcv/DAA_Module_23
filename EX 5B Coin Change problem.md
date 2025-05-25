@@ -5,16 +5,6 @@ To compute the fewest number of coins that we need to make up the amount given.
 
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  # EX 5B Coin Change Problem
-## DATE:
-## AIM:
-To compute the fewest number of coins that we need to make up the amount given.
-
-
-## Algorithm
 1. Initialization:Create a dynamic programming (DP) array dp[] of size amount + 1, where dp[i] represents the minimum number of coins needed to make the amount i.
 2. Initialize dp[0] = 0 since no coins are needed to make the amount 0, and set all other dp[i] to infinity (float('inf')), indicating that the amount i is not yet achievable.
 3. Filling the DP Array:For each coin in the list of available coins, iterate over all amounts from the coin's value up to the target amount.
@@ -54,26 +44,6 @@ print(ob1.coinChange(s,amt))
 
 ## Output:
 ![image](https://github.com/user-attachments/assets/9d0b666f-498e-4784-99ff-36b168a86610)
-
-
-
-## Result:
-Thus the program was executed successfully for finding the minimum number of coins required to make amount.
-
-5.   
-
-## Program:
-```
-/*
-Create a python function to compute the fewest number of coins that we need to make up the amount given.
-
-.
-Developed by: 
-Register Number:  
-*/
-```
-
-## Output:
 
 
 
