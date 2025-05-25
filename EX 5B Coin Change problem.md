@@ -1,51 +1,51 @@
-# EX 5C Kadane's Algorithm
+# EX 5B Coin Change Problem
 ## DATE:
 ## AIM:
-To write a python program to find the maximum contiguous subarray.
+To compute the fewest number of coins that we need to make up the amount given.
 
 
 ## Algorithm
-1. Start by initializing a variable max_sum to 0 to keep track of the maximum subarray sum found so far.
-2. Loop through each index i from 0 to n-1 as the starting point of the subarray.
-3. For each i, initialize a variable current_sum to 0 to store the sum of the current subarray.
-4. Loop through each index j from i to n-1 to consider every subarray starting from index i.
-5. Add the current element a[j] to current_sum to extend the subarray.
-6. If current_sum is greater than max_sum, update max_sum; if current_sum becomes negative, reset it to 0 to start fresh.
+1. Initialization:Create a dynamic programming (DP) array dp[] of size amount + 1, where dp[i] represents the minimum number of coins needed to make the amount i.
+2. Initialize dp[0] = 0 since no coins are needed to make the amount 0, and set all other dp[i] to infinity (float('inf')), indicating that the amount i is not yet achievable.
+3. Filling the DP Array:For each coin in the list of available coins, iterate over all amounts from the coin's value up to the target amount.
+4. Update the DP array by setting dp[i] to the minimum of its current value and dp[i - coin] + 1 (i.e., using one more coin of the current denomination).
+5. Result:After processing all coins, if dp[amount] is still infinity, return -1, indicating that it's not possible to form the amount with the given coins.
+6. Otherwise, return dp[amount], which gives the minimum number of coins required.
 
 ## Program:
 ```
-To implement the program to find the maximum contiguous subarray.
+Create a python function to compute the fewest number of coins that we need to make up the amount given.
 Developed by: R Guruprasad
-Register Number: 212222240033 
+Register Number: 212222240033
 ```
 ```py
-def maxSubArraySum(a,size):
-    maxx=0
-    # print(size)
-    for i in range(size):
-        sum=0
-        for j in range(i,size):
-            sum+=a[j]
-            # maxx=max(maxx,sum)
-            if sum>maxx:
-                maxx=sum
-            if sum<0:
-                sum=0
-    return maxx
-    
-n=int(input())  
-a =[] #[-2, -3, 4, -1, -2, 1, 5, -3]
+class Solution(object):
+   def coinChange(self, coins, amount):
+       ####################      Add your Code Here ###########
+        dp = [float('inf')] * (amount + 1)
+        dp[0]=0
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+        return dp[amount] if dp[amount]!=float('inf') else -1
+      
+      
+ob1 = Solution()
+n=int(input())
+s=[]
+amt=int(input())
 for i in range(n):
-    a.append(int(input()))
-  
-print("Maximum contiguous sum is", maxSubArraySum(a,n))
+    s.append(int(input()))
+
+
+print(ob1.coinChange(s,amt))
 
 ```
 
 ## Output:
-![image](https://github.com/user-attachments/assets/aebe05bd-5735-432c-91b2-f955266b4c9a)
+![image](https://github.com/user-attachments/assets/9d0b666f-498e-4784-99ff-36b168a86610)
 
 
 
 ## Result:
-Thus the program was executed successfully for finding the maximum contiguous sum of subarray..
+Thus the program was executed successfully for finding the minimum number of coins required to make amount.
